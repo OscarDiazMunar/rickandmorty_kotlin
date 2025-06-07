@@ -1,4 +1,4 @@
-package com.oscar.rickandmorty_kotlin
+package com.oscar.rickandmorty_kotlin.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.oscar.rickandmorty_kotlin.ui.theme.Rickandmorty_kotlinTheme
+import com.oscar.rickandmorty_kotlin.app.ui.theme.Rickandmorty_kotlinTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

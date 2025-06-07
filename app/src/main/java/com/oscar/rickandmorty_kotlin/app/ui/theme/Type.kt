@@ -1,4 +1,4 @@
-package com.oscar.rickandmorty_kotlin.ui.theme
+package com.oscar.rickandmorty_kotlin.app.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
