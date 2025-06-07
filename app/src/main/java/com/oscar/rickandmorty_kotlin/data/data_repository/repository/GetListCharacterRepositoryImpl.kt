@@ -5,6 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.oscar.rickandmorty_kotlin.data.data_repository.data_source.remote.CharactersPagingSource
 import com.oscar.rickandmorty_kotlin.data.data_repository.data_source.remote.RemoteListCharactersDataSource
+import com.oscar.rickandmorty_kotlin.domain.entity.detail.CharacterDetailEntity
 import com.oscar.rickandmorty_kotlin.domain.entity.list.CharacterEntity
 import com.oscar.rickandmorty_kotlin.domain.repository.GetListCharacterRepository
 import kotlinx.coroutines.flow.Flow
@@ -22,4 +23,6 @@ class GetListCharacterRepositoryImpl @Inject constructor(
             pagingSourceFactory = { CharactersPagingSource(remoteListCharactersDataSource) }
         ).flow
     }
+
+    override fun getDetailCharacter(id: String): Flow<CharacterDetailEntity> = remoteListCharactersDataSource.getDetailCharacter(id)
 }

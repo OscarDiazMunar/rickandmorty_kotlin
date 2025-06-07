@@ -1,8 +1,10 @@
 package com.oscar.rickandmorty_kotlin.data.data_remote.source
 
 import com.oscar.rickandmorty_kotlin.data.data_remote.networking.CharactersClient
-import com.oscar.rickandmorty_kotlin.data.data_remote.networking.model.CharactersDTO
+import com.oscar.rickandmorty_kotlin.data.data_remote.networking.model.detail.CharacterDetailDTO
+import com.oscar.rickandmorty_kotlin.data.data_remote.networking.model.list.CharactersDTO
 import com.oscar.rickandmorty_kotlin.data.data_repository.data_source.remote.RemoteListCharactersDataSource
+import com.oscar.rickandmorty_kotlin.domain.entity.detail.CharacterDetailEntity
 import com.oscar.rickandmorty_kotlin.domain.entity.list.CharacterEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -16,6 +18,24 @@ class RemoteListCharactersDataSourceImpl @Inject constructor(
         emit(charactersClient.getListCharacters(page))
     }.map { character ->
         convertToCharacterEntity(character)
+    }
+
+    override fun getDetailCharacter(id: String): Flow<CharacterDetailEntity> = flow {
+        emit(charactersClient.getDetailCharacter(id))
+    }.map { character ->
+        convertToCharacterDetailEntity(character)
+    }
+
+    private fun convertToCharacterDetailEntity(character: CharacterDetailDTO): CharacterDetailEntity {
+        return CharacterDetailEntity(
+            id = character.id,
+            name = character.name,
+            status = character.status,
+            image = character.image,
+            species = character.species,
+            originName = character.originName,
+            locationName = character.locationName
+        )
     }
 
     private fun convertToCharacterEntity(character: List<CharactersDTO>): List<CharacterEntity> {

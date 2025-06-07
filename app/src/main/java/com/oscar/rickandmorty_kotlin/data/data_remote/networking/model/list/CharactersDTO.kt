@@ -1,4 +1,4 @@
-package com.oscar.rickandmorty_kotlin.data.data_remote.networking.model
+package com.oscar.rickandmorty_kotlin.data.data_remote.networking.model.list
 
 data class CharactersDTO(
     val id: String?,
