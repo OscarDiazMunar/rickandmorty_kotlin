@@ -43,7 +43,7 @@ fun DetailCharacterScreen(
     navController: NavController
 ) {
     LaunchedEffect(id) { id?.let {
-        viewModel.fetchDetailMovie(it)
+        viewModel.fetchDetailCharacter(it)
     }}
     val characterDetail: CharacterDetailEntity = viewModel.getDetailFlow.collectAsState().value
 
